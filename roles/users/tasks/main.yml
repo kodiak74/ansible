@@ -1,0 +1,25 @@
+---
+# This playbook contains the grafana server setup installation
+
+
+- name: Create user accounts and add users to groups 
+  user:
+    name: "{{ item.username }}"
+    groups: "{{ item.groups }}"
+    shell: "{{ item.shell }}"
+  with_items: "{{ users }}"
+
+
+- name: "Add authorized keys"
+  authorized_key:
+    user: "{{ item.username }}"
+    key: "{{ item.ssh_pub }}"
+  with_items: "{{ users }}"
+
+
+- name: "Allow admin users to sudo without a password"
+  lineinfile:
+    dest: "/etc/sudoers" # path: in version 2.3
+    state: "present"
+    regexp: "^%admin"
+    line: "%admin ALL=(ALL) NOPASSWD: ALL"

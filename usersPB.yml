@@ -1,0 +1,9 @@
+---
+# This playbook configures the users defined in the group_vars on the target hosts
+
+- name: Configure user accounts
+  hosts: all
+  become: true
+
+  roles:
+    - users

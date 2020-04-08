@@ -1,0 +1,25 @@
+---
+
+
+# Grafana Settings - used for Telegraf agent installs (Now using the public DNS for grafana)
+grafana:
+    server:     "http://my.grafana.host.com:8086/"
+    database:   "grafana"
+
+
+# SSH Users for adding to EC2 instances
+users:
+
+- username: "chris"
+  groups: "admin, staff"
+  ssh_pub: "ssh-rsa <users public key>"
+  shell: "/bin/bash"
+
+ 
+# Setting the users shell to /bin/false will prevent logins
+- username: "userwithnologin"
+  groups: "staff"
+  ssh_pub: "ssh-rsa <users public key>"
+  shell: "/bin/false"
+
+

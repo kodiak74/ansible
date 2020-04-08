@@ -1,0 +1,8 @@
+---
+# This playbook deploys the Telegraf monitoring agent
+
+- name: Install telegraf on all hosts in inventory
+  hosts: all
+  become: true
+  roles:
+    - telegraf

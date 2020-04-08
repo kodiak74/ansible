@@ -1,0 +1,22 @@
+---
+# These tasks install http and the php modules.
+
+ 
+   
+- name: Install common packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+    - nginx
+    - php
+ 
+
+ 
+# - name: http service state
+#   service: name=httpd state=started enabled=yes
+
+# - name: Configure SELinux to allow httpd to connect to remote database
+#   seboolean: name=httpd_can_network_connect_db state=true persistent=yes

@@ -1,0 +1,63 @@
+<html>
+ <head>
+  <title>Welcome</title>
+  <style>
+        body, html {
+                padding: 3px 3px 3px 3px;
+                background-color: #D8DBE2;
+                font-family: Verdana, sans-serif;
+                font-size: 11pt;
+                text-align: center;
+        }
+        * {
+                margin: 0px 0px 0px 0px;
+                padding: 0px 0px 0px 0px;
+        }
+ 
+        th, td {
+                padding: 8px;
+                text-align: left;
+        }
+
+  </style>
+ </head>
+ <body>
+
+ <br/><br/>
+ <h1> Welcome </h1>
+ <br/><br/>
+<p> This is a placeholder page for a Nginx/PHP web server install </p>
+<p> Installed: {{ now() }} </p>
+ <br/><br/>
+
+<div>
+<h4> Times </h4>
+<p> Just a little bit of test code to verify PHP install </p>
+
+<br/><br/>
+
+ <table style="margin-left:auto; margin-right:auto">
+ <tr><th>Zone</th><th>Time</th></tr>
+ <tr><td>UTC</td><td>
+<?php 
+ 
+$dt = new DateTime("now", new DateTimeZone('UTC'));
+echo $dt->format('d M Y, H:i:s');
+ 
+
+?>
+</td></tr>
+<tr><td>Melbourne</td><td>
+<?php 
+
+$dt = new DateTime("now", new DateTimeZone('Australia/Melbourne'));
+echo $dt->format('d M Y, H:i:s');
+
+?>
+</td></tr>
+</table>
+</div>
+
+</body>
+</html>
+

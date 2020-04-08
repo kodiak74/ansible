@@ -1,0 +1,33 @@
+---
+
+- name: add telegraf gpg key
+  shell: curl https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+   
+
+- name: add telegraf repo 
+  apt_repository:
+    repo: deb https://repos.influxdata.com/ubuntu bionic stable
+    state: present
+    filename: telegraf
+
+
+- name: Install telegraf
+  apt: 
+    name: telegraf
+    state: latest
+    update_cache: yes
+
+
+- name: Install custom config
+  template:
+    src: telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+    force: yes
+  
+  notify:
+    - restart telegraf
+

@@ -1,0 +1,8 @@
+---
+# This playbook deploys an nginx/php server on the target hosts
+
+- name: Install nginx on all hosts in inventory
+  hosts: all
+  become: true
+  roles:
+    - nginx
