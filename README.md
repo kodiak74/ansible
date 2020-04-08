@@ -1,6 +1,6 @@
 ## Ansible Samples
 
-This is the repo for the Medium article "Getting started with Ansible"
+This is the repo for the Medium article ["Getting started with Ansible"](https://medium.com/@chris_76982/getting-started-with-ansible-ae76de7f1428)
 
 ### Setup and running
 
